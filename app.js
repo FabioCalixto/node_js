@@ -4,13 +4,20 @@ const app = express();
 
 app.get("/", (req, res)=> {
 
-    res.send("Olá Mundo");
+    res.send("Olá Calixto");
 
 });
 
-app.get("/contato", (req, res)=> {
+app.get("/contato/:id", (req, res)=> {
+    
+    const id = req.params.id;
+    const sit = req.query.sit;
 
-    res.send("Pagina de contato!");
+    return res.json({ 
+         id: id,
+         nome: "Fabio",
+         sit:sit
+        });
 
 })
 
