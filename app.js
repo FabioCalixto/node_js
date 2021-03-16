@@ -1,22 +1,22 @@
 const express = require("express");
 
 const app = express();
+const contactos = ['Fabio','Mario','Vilar', 'Calixto'] ;
 
 app.get("/", (req, res)=> {
 
-    res.send("Olá Calixto");
-
+  return res.json(contactos);
 });
 
 app.get("/contato/:id", (req, res)=> {
     
-    const id = req.params.id;
-    const sit = req.query.sit;
+    const {id} = req.params;
+   
 
     return res.json({ 
-         id: id,
-         nome: "Fabio",
-         sit:sit
+          id,
+         nome: contactos[id]
+        
         });
 
 })
