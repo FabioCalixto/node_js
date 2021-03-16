@@ -43,6 +43,15 @@ app.put("/contato/:id", (req, res)=> {
     contactos[id] = nome;
     return res.json(contactos);
 
+});
+
+//USANDO O DELETE NA REST API PARA APAGAR UM REGISTRO
+app.delete("/contato/:id", (req, res) =>{
+        const  {id } = req.params;
+        contactos.splice(id,1);
+        return res.json(contactos);
+
+
 })
 
 
