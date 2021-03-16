@@ -5,6 +5,7 @@ app.use(express.json());
 
 const contactos = ['Fabio','Mario','Vilar', 'Calixto'] ;
 
+//USANDO O GET NA REST API PARA LISTAR
 app.get("/contato", (req, res) => {
  return res.json(contactos);
 
@@ -32,8 +33,19 @@ app.post("/contato", (req, res)=>{
     contactos.push(nome);
     return res.json(contactos);
 
-
 });
+
+//USANDO O PUT NA REST PARA EDITAR
+app.put("/contato/:id", (req, res)=> {
+    const {id} = req.params;
+    const {nome} = req.body;
+
+    contactos[id] = nome;
+    return res.json(contactos);
+
+})
+
+
 
 
 app.listen(8080, ()=> {
